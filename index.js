@@ -10,7 +10,7 @@ const cors = require('cors');
 const { pool } = require('./config');
 
 const app = express();
-app.use(favicon(path.join(__dirname, 'public', 'favicon.png')));
+app.use(favicon(path.join(__dirname, 'public/images', 'favicon.png')));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
