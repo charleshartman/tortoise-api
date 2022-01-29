@@ -1,0 +1,28 @@
+ *,
+*::before,
+*::after {
+  box-sizing: border-box
+} 
+
+html {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 1rem;
+  color: #444;
+  background-color: gainsboro;
+  display: block;
+  padding: 10px 30px;
+}
+
+h1 {
+  font-size: 2.25rem;
+}
+
+p {
+  font-size: 1.2rem;
+  color: steelblue;
+  padding-left: 0.5px;
+}
+
+.hide {
+  display: none;
+}

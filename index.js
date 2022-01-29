@@ -40,8 +40,16 @@ const addBook = (request, response) => {
   );
 };
 
+const getHome = (request, response) => {
+  response.sendFile(__dirname + '/public/index.html');
+};
+
 app
   .route('/')
+  .get(getHome);
+
+app
+  .route('/books')
   // GET endpoint
   .get(getBooks)
   // POST endpoint
