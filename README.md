@@ -1,2 +1,2 @@
 ## tortoise-api
-### A REST API example with Node.js, Express and PostgreSQL.
+### A REST API example utilizing Node.js, Express and PostgreSQL.
