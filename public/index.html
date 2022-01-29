@@ -10,15 +10,53 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="stylesheets/style.css">
     <link rel="icon" href="images/favicon.png">
 
-    <script defer src="javascripts/script.js"></script>
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box
+      } 
+
+      html {
+        font-family: 'Ubuntu', sans-serif;
+        font-size: 1rem;
+        color: #444;
+        background-color: gainsboro;
+        display: block;
+        padding: 10px 30px;
+      }
+
+      h1 {
+        font-size: 2.25rem;
+      }
+
+      p {
+        font-size: 1.2rem;
+        color: steelblue;
+        padding-left: 0.5px;
+      }
+
+      .hide {
+        display: none;
+      }
+    </style>
   </head>
   
   <body>
     <h1>tortoise api</h1>
-    <h2>A REST API example utilizing Node.js, Express and PostgreSQL.</h2>
+    <h3>A REST API example utilizing Node.js, Express and PostgreSQL.</h3>
     <div id="root"></div>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        let root = document.querySelector('#root');
+        let intro = document.createElement('p');
+        intro.classList.add('textualContent');
+        intro.textContent = 'is coming soonish.';
+
+        root.appendChild(intro);
+      });
+    </script>
   </body>
 </html>
