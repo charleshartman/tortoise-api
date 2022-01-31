@@ -2,8 +2,6 @@
 
 "use strict";
 
-require('dotenv').config({ path: './config.env' });
-
 const express = require('express');
 const favicon = require('serve-favicon');
 const path = require('path');
@@ -11,19 +9,12 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const { pool } = require('./config');
 
-// get MongoDB driver connection
-const dbo = require('./db/conn');
-
 const app = express();
 app.use(favicon(path.join(__dirname, 'public/images', 'favicon.png')));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
-
-// for MongoDB
-app.use(express.json());
-app.use(require('./routes/record'));
 
 const getBooks = (request, response) => {
   pool.query('SELECT * FROM books', (error, results) => {
@@ -64,24 +55,7 @@ app
   // POST endpoint
   .post(addBook);
 
-// perform a database connection when the server starts
-dbo.connectToServer(function (err) {
-  if (err) {
-    console.error(err);
-    process.exit();
-  }
-
-  // start the Express server
-  // app.listen(PORT, () => {
-  //   console.log(`Server is running on port: ${PORT}`);
-  // });
-
-  app.listen(process.env.PORT || 3002, () => {
-    console.log(`Server listening`);
-  });
-});
-
 // Start server
-// app.listen(process.env.PORT || 3002, () => {
-//   console.log(`Server listening`);
-// });
+app.listen(process.env.PORT || 3002, () => {
+  console.log(`Server listening`);
+});
